@@ -24,7 +24,7 @@ class Server {
     
     public startServer(PORT: number, HOST: string): void {
         this._server.listen(PORT, HOST, (): void => {
-            console.log(`Server running on http://localhost:${PORT}`);
+            console.log(`Server running on  http://localhost:${PORT}`);
         })
     }
 
