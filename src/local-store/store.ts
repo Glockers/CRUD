@@ -1,5 +1,5 @@
 export type IUser ={
-    id?:string;
+    id?: string;
     username:string;
     age: number;
     hobbies: string[];
