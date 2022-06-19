@@ -4,7 +4,7 @@
   "description": "Rs school",
   "main": "dist/index.js",
   "scripts": {
-    "start": "npx tsc & node dist/index.js",
+    "start:prod": "npx tsc & node dist/index.js",
     "dev": "npx ts-node-dev src/index.ts",
     "start:multi": "npx tsc & node dist/cluster.js"
   },
@@ -14,7 +14,8 @@
     "@types/node": "^18.0.0",
     "@types/uuid": "^8.3.4",
     "dotenv": "^16.0.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.16",

@@ -1,8 +1,12 @@
 import http from 'http';
+import { mainController } from '../controllers/mainController';
 
 
 // interface ReqCallback
 type TypeCallback = (req: http.IncomingMessage, res: http.ServerResponse) => void
+
+
+
 
 
 class Server {
@@ -13,22 +17,25 @@ class Server {
     }
 
 
-    public get(route: string, callBack: TypeCallback){
-        this._server.on('request', (request, res) => {
-            res.setHeader('Content-Type', 'application/json');
-            if(route == request.url){
-                callBack(request, res)
-            }
-        });
+    public getRequestParams(req: http.IncomingMessage){
+        
+
+        
     }
-    
     public startServer(PORT: number, HOST: string): void {
         this._server.listen(PORT, HOST, (): void => {
-            console.log(`Server running on  http://localhost:${PORT}`);
+            console.log(`Server running on http://localhost:${PORT}`);
         })
+        
+        this.listenMethods()
     }
 
     
+    private listenMethods(){
+        this._server.on('request', (request, res) => {
+            mainController(request, res)
+        });
+    }
 
 }
 
